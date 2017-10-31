@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A7E2904752839E84B5C86D9 /* Pods_MotionGraphic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F801DDADCCF5CE4349B05909 /* Pods_MotionGraphic.framework */; };
 		2B1791D91FA875F700586E53 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1791D81FA875F700586E53 /* AppDelegate.swift */; };
 		2B1791DB1FA875F700586E53 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1791DA1FA875F700586E53 /* ViewController.swift */; };
 		2B1791DE1FA875F700586E53 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B1791DC1FA875F700586E53 /* Main.storyboard */; };
@@ -14,6 +15,8 @@
 		2B1791E31FA875F700586E53 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B1791E11FA875F700586E53 /* LaunchScreen.storyboard */; };
 		2B1791EE1FA875F700586E53 /* MotionGraphicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1791ED1FA875F700586E53 /* MotionGraphicTests.swift */; };
 		2B1791F91FA875F700586E53 /* MotionGraphicUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1791F81FA875F700586E53 /* MotionGraphicUITests.swift */; };
+		AC89F4ACC4E01515B055C0A9 /* Pods_MotionGraphicTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BDF02AB5E9E1A23DA6CD7E7 /* Pods_MotionGraphicTests.framework */; };
+		EE8CE9B8BBF36AE34F84CAED /* Pods_MotionGraphicUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 672F62309E0F7B3BBF74500F /* Pods_MotionGraphicUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,15 @@
 		2B1791F41FA875F700586E53 /* MotionGraphicUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MotionGraphicUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B1791F81FA875F700586E53 /* MotionGraphicUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionGraphicUITests.swift; sourceTree = "<group>"; };
 		2B1791FA1FA875F700586E53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		672F62309E0F7B3BBF74500F /* Pods_MotionGraphicUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MotionGraphicUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		674E49694AFDDFCE14A81CB3 /* Pods-MotionGraphicUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MotionGraphicUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MotionGraphicUITests/Pods-MotionGraphicUITests.release.xcconfig"; sourceTree = "<group>"; };
+		67EE24ED2F3B268EE3D70FBA /* Pods-MotionGraphicTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MotionGraphicTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MotionGraphicTests/Pods-MotionGraphicTests.release.xcconfig"; sourceTree = "<group>"; };
+		6BDF02AB5E9E1A23DA6CD7E7 /* Pods_MotionGraphicTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MotionGraphicTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE9F1B88C53041D8DFCAE067 /* Pods-MotionGraphic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MotionGraphic.release.xcconfig"; path = "Pods/Target Support Files/Pods-MotionGraphic/Pods-MotionGraphic.release.xcconfig"; sourceTree = "<group>"; };
+		C8F3897BB773F4C7441EF6D1 /* Pods-MotionGraphicUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MotionGraphicUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MotionGraphicUITests/Pods-MotionGraphicUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		DA1465C1FD25AB682E9EAE7F /* Pods-MotionGraphicTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MotionGraphicTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MotionGraphicTests/Pods-MotionGraphicTests.debug.xcconfig"; sourceTree = "<group>"; };
+		EA78721DC0A773ABC4BE7C72 /* Pods-MotionGraphic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MotionGraphic.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MotionGraphic/Pods-MotionGraphic.debug.xcconfig"; sourceTree = "<group>"; };
+		F801DDADCCF5CE4349B05909 /* Pods_MotionGraphic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MotionGraphic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A7E2904752839E84B5C86D9 /* Pods_MotionGraphic.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC89F4ACC4E01515B055C0A9 /* Pods_MotionGraphicTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE8CE9B8BBF36AE34F84CAED /* Pods_MotionGraphicUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +96,8 @@
 				2B1791EC1FA875F700586E53 /* MotionGraphicTests */,
 				2B1791F71FA875F700586E53 /* MotionGraphicUITests */,
 				2B1791D61FA875F700586E53 /* Products */,
+				A1E85D1E902A63B834462CF3 /* Pods */,
+				937861119F0B115B47BF3622 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -125,6 +142,29 @@
 			path = MotionGraphicUITests;
 			sourceTree = "<group>";
 		};
+		937861119F0B115B47BF3622 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F801DDADCCF5CE4349B05909 /* Pods_MotionGraphic.framework */,
+				6BDF02AB5E9E1A23DA6CD7E7 /* Pods_MotionGraphicTests.framework */,
+				672F62309E0F7B3BBF74500F /* Pods_MotionGraphicUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A1E85D1E902A63B834462CF3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EA78721DC0A773ABC4BE7C72 /* Pods-MotionGraphic.debug.xcconfig */,
+				BE9F1B88C53041D8DFCAE067 /* Pods-MotionGraphic.release.xcconfig */,
+				DA1465C1FD25AB682E9EAE7F /* Pods-MotionGraphicTests.debug.xcconfig */,
+				67EE24ED2F3B268EE3D70FBA /* Pods-MotionGraphicTests.release.xcconfig */,
+				C8F3897BB773F4C7441EF6D1 /* Pods-MotionGraphicUITests.debug.xcconfig */,
+				674E49694AFDDFCE14A81CB3 /* Pods-MotionGraphicUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +172,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2B1791FD1FA875F700586E53 /* Build configuration list for PBXNativeTarget "MotionGraphic" */;
 			buildPhases = (
+				FFDEB1C90387A484256B9706 /* [CP] Check Pods Manifest.lock */,
 				2B1791D11FA875F700586E53 /* Sources */,
 				2B1791D21FA875F700586E53 /* Frameworks */,
 				2B1791D31FA875F700586E53 /* Resources */,
+				2E491A13D4B1C07CB44E2641 /* [CP] Embed Pods Frameworks */,
+				54FEC9AD2717B687021E9032 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -149,9 +192,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2B1792001FA875F700586E53 /* Build configuration list for PBXNativeTarget "MotionGraphicTests" */;
 			buildPhases = (
+				36C27793F8E838E489EFEACC /* [CP] Check Pods Manifest.lock */,
 				2B1791E51FA875F700586E53 /* Sources */,
 				2B1791E61FA875F700586E53 /* Frameworks */,
 				2B1791E71FA875F700586E53 /* Resources */,
+				C54E182C5274553404A29A8C /* [CP] Embed Pods Frameworks */,
+				E2413B259DE3F42C17C114F7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -167,9 +213,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2B1792031FA875F700586E53 /* Build configuration list for PBXNativeTarget "MotionGraphicUITests" */;
 			buildPhases = (
+				860099E0DB8DC97C7A7A755E /* [CP] Check Pods Manifest.lock */,
 				2B1791F01FA875F700586E53 /* Sources */,
 				2B1791F11FA875F700586E53 /* Frameworks */,
 				2B1791F21FA875F700586E53 /* Resources */,
+				A756C6B217D1ADDD06828FC6 /* [CP] Embed Pods Frameworks */,
+				A36B6E39BA137C1C30BA769E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -193,6 +242,7 @@
 				TargetAttributes = {
 					2B1791D41FA875F700586E53 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 43Q23333XP;
 						ProvisioningStyle = Automatic;
 					};
 					2B1791E81FA875F700586E53 = {
@@ -253,6 +303,144 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2E491A13D4B1C07CB44E2641 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MotionGraphic/Pods-MotionGraphic-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		36C27793F8E838E489EFEACC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		54FEC9AD2717B687021E9032 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MotionGraphic/Pods-MotionGraphic-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		860099E0DB8DC97C7A7A755E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A36B6E39BA137C1C30BA769E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MotionGraphicUITests/Pods-MotionGraphicUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A756C6B217D1ADDD06828FC6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MotionGraphicUITests/Pods-MotionGraphicUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C54E182C5274553404A29A8C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MotionGraphicTests/Pods-MotionGraphicTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E2413B259DE3F42C17C114F7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MotionGraphicTests/Pods-MotionGraphicTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FFDEB1C90387A484256B9706 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2B1791D11FA875F700586E53 /* Sources */ = {
@@ -410,8 +598,10 @@
 		};
 		2B1791FE1FA875F700586E53 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EA78721DC0A773ABC4BE7C72 /* Pods-MotionGraphic.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 43Q23333XP;
 				INFOPLIST_FILE = MotionGraphic/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.litech.MotionGraphic;
@@ -422,8 +612,10 @@
 		};
 		2B1791FF1FA875F700586E53 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BE9F1B88C53041D8DFCAE067 /* Pods-MotionGraphic.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 43Q23333XP;
 				INFOPLIST_FILE = MotionGraphic/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.litech.MotionGraphic;
@@ -434,6 +626,7 @@
 		};
 		2B1792011FA875F700586E53 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DA1465C1FD25AB682E9EAE7F /* Pods-MotionGraphicTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -448,6 +641,7 @@
 		};
 		2B1792021FA875F700586E53 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 67EE24ED2F3B268EE3D70FBA /* Pods-MotionGraphicTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -462,6 +656,7 @@
 		};
 		2B1792041FA875F700586E53 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C8F3897BB773F4C7441EF6D1 /* Pods-MotionGraphicUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = MotionGraphicUITests/Info.plist;
@@ -475,6 +670,7 @@
 		};
 		2B1792051FA875F700586E53 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 674E49694AFDDFCE14A81CB3 /* Pods-MotionGraphicUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = MotionGraphicUITests/Info.plist;
@@ -505,6 +701,7 @@
 				2B1791FF1FA875F700586E53 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2B1792001FA875F700586E53 /* Build configuration list for PBXNativeTarget "MotionGraphicTests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +710,7 @@
 				2B1792021FA875F700586E53 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2B1792031FA875F700586E53 /* Build configuration list for PBXNativeTarget "MotionGraphicUITests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +719,7 @@
 				2B1792051FA875F700586E53 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
