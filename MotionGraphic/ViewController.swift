@@ -16,6 +16,13 @@ class ViewController: CanvasController {
         self.canvas.backgroundColor = black
         loadShape()
         
+        let orange = createCircle()
+        let orrangeColor = Color(red: 226.0/255.0, green: 122.0/255.0, blue: 4.0/255.0, alpha: 1)
+        orange.fillColor = orangeColor
+        orange.strokeColor = orrangeColor
+        orange.center = canvas.center
+        canvas.add(orange)
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         //始まる方向を指定
@@ -36,13 +43,25 @@ class ViewController: CanvasController {
         return shape
     }
     
+    var blueshapenumber: Int = 1
+    
     @IBAction func didTapCanvas(_ sender: Any){
-        let move = ViewAnimation(duration: 2.0){
-            self.blueShape.strokeEnd = 1
-            
-            self.blueShape.strokeEnd = -1
-        }
-        move.animate()
+        
     }
+    func blueshape1(){
+        if blueshapenumber == 1 {
+            let move = ViewAnimation(duration: 2.0){
+                self.blueShape.strokeEnd = 1
+            }
+            move.animate()
+            blueshapenumber = 0
+        }else{
+            let disappear = ViewAnimation(duration: 2.0){
+                self.blueShape.strokeEnd = -1
+            }
+            disappear.animate()
+        }
+    }
+    
 }
 
