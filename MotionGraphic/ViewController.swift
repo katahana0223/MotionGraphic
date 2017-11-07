@@ -15,7 +15,7 @@ class ViewController: CanvasController {
     override func setup() {
         self.canvas.backgroundColor = black
         loadShape()
-       
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         //始まる方向を指定
@@ -35,9 +35,12 @@ class ViewController: CanvasController {
         self.canvas.add(shape)
         return shape
     }
+    
     @IBAction func didTapCanvas(_ sender: Any){
-        let move = ViewAnimation(duration: 1.0){
-            self.blueShape.strokeEnd = random01()
+        let move = ViewAnimation(duration: 2.0){
+            self.blueShape.strokeEnd = 1
+            
+            self.blueShape.strokeEnd = -1
         }
         move.animate()
     }
