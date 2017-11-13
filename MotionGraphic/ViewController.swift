@@ -21,14 +21,17 @@ class ViewController: CanvasController {
         let orange = createCircle()
         let orrangeColor = Color(red: 226.0/255.0, green: 122.0/255.0, blue: 4.0/255.0, alpha: 1)
         orange.fillColor = orangeColor
-        orange.strokeColor = orrangeColor
+        orange.strokeColor = orangeColor
         orange.center = canvas.center
         canvas.add(orange)
+        
         let orangeAnim = ViewAnimation(duration: 1.0) {
             orange.transform = scale
             orange.fillColor = fadeOutColor
         }
-        
+        wait(1.0){
+            sequence.animate()
+        }
     }
     override func viewWillAppear(_ animated: Bool) {
         //始まる方向を指定
@@ -68,6 +71,11 @@ class ViewController: CanvasController {
             disappear.animate()
         }
     }
-    
+    private func createCircle() -> Circle {
+        let rect = Rect(0, 0, 50, 50)
+        
+        return Circle(frame: rect)
+    }
+   
 }
 
