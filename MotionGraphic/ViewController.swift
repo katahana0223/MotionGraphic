@@ -12,14 +12,15 @@ import C4
 class ViewController: CanvasController {
     
     private var blueShape: Shape!
-    ShapeLayer.disableActions = true
+   
     
     override func setup() {
+         ShapeLayer.disableActions = true
         self.canvas.backgroundColor = black
         loadShape()
         
         let orange = createCircle()
-        let orrangeColor = Color(red: 226.0/255.0, green: 122.0/255.0, blue: 4.0/255.0, alpha: 1)
+        let orangeColor = Color(red: 226.0/255.0, green: 122.0/255.0, blue: 4.0/255.0, alpha: 1)
         orange.fillColor = orangeColor
         orange.strokeColor = orangeColor
         orange.center = canvas.center
@@ -33,6 +34,7 @@ class ViewController: CanvasController {
             sequence.animate()
         }
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         //始まる方向を指定
         blueShape.rotation = -0.5 * M_PI
@@ -76,6 +78,6 @@ class ViewController: CanvasController {
         
         return Circle(frame: rect)
     }
-   
+    
 }
 
