@@ -12,6 +12,8 @@ import C4
 class ViewController: CanvasController {
     
     private var blueShape: Shape!
+    ShapeLayer.disableActions = true
+    
     override func setup() {
         self.canvas.backgroundColor = black
         loadShape()
@@ -22,6 +24,10 @@ class ViewController: CanvasController {
         orange.strokeColor = orrangeColor
         orange.center = canvas.center
         canvas.add(orange)
+        let orangeAnim = ViewAnimation(duration: 1.0) {
+            orange.transform = scale
+            orange.fillColor = fadeOutColor
+        }
         
     }
     override func viewWillAppear(_ animated: Bool) {
