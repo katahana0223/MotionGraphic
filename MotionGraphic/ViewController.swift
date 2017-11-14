@@ -13,11 +13,25 @@ class ViewController: CanvasController {
     
     private var blueShape: Shape!
     
-    
+    private func createCircle() -> Circle {
+        let rect = Rect(0, 0, 50, 50)
+        return Circle(frame: rect)
+    }
     override func setup() {
+        canvas.backgroundColor = black
         ShapeLayer.disableActions = true
-        self.canvas.backgroundColor = black
         loadShape()
+    }
+    
+   
+    func createShape(center: Point, color: Color, radius: Double) -> Shape {
+        
+        let shape = Circle(center: center, radius: radius)
+        shape.lineWidth = 20.0
+        shape.strokeColor = color
+        shape.fillColor = clear
+        self.canvas.add(shape)
+        return shape
         
         let orange = createCircle()
         let orangeColor = Color(red: 226.0/255.0, green: 122.0/255.0, blue: 4.0/255.0, alpha: 1)
@@ -41,31 +55,24 @@ class ViewController: CanvasController {
             sequence.animate()
         }
     }
+    @IBAction func didTapCanvas(_ sender: Any){
+        
+    }
     
+    var blueshapenumber: Int = 1
+   
     override func viewWillAppear(_ animated: Bool) {
         //始まる方向を指定
         blueShape.rotation = -0.5 * M_PI
     }
+    
     func loadShape(){
         //radius円の大きさ
         blueShape = createShape(center: canvas.center, color: Color(0x00E5FF), radius: 50.0)
         blueShape.strokeStart = 0.0
         blueShape.strokeEnd = 0.001
     }
-    func createShape(center: Point, color: Color, radius: Double) -> Shape {
-        let shape = Circle(center: center, radius: radius)
-        shape.lineWidth = 20.0
-        shape.strokeColor = color
-        shape.fillColor = clear
-        self.canvas.add(shape)
-        return shape
-    }
     
-    var blueshapenumber: Int = 1
-    
-    @IBAction func didTapCanvas(_ sender: Any){
-        
-    }
     func blueshape1(){
         if blueshapenumber == 1 {
             let move = ViewAnimation(duration: 2.0){
@@ -80,11 +87,7 @@ class ViewController: CanvasController {
             disappear.animate()
         }
     }
-    private func createCircle() -> Circle {
-        let rect = Rect(0, 0, 50, 50)
-        
-        return Circle(frame: rect)
-    }
     
+   
 }
 
