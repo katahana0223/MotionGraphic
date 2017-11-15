@@ -23,7 +23,7 @@ class ViewController: CanvasController {
         loadShape()
     }
     
-   
+    
     func createShape(center: Point, color: Color, radius: Double) -> Shape {
         
         let shape = Circle(center: center, radius: radius)
@@ -33,34 +33,14 @@ class ViewController: CanvasController {
         self.canvas.add(shape)
         return shape
         
-        let orange = createCircle()
-        let orangeColor = Color(red: 226.0/255.0, green: 122.0/255.0, blue: 4.0/255.0, alpha: 1)
-        orange.fillColor = orangeColor
-        orange.strokeColor = orangeColor
-        orange.center = canvas.center
-        canvas.add(orange)
-        
-        // MARK: - Animations
-        let scale = Transform.makeScale(100, 100)
-        let fadeOutColor = Color(red: 0, green: 0, blue: 0, alpha: 0)
-        
-        let orangeAnim = ViewAnimation(duration: 1.0) {
-            orange.transform = scale
-            orange.fillColor = fadeOutColor
-        }
-        let sequence = ViewAnimationSequence(animations: [
-            orangeAnim
-            ])
-        wait(1.0){
-            sequence.animate()
-        }
     }
+    
     @IBAction func didTapCanvas(_ sender: Any){
         
     }
     
     var blueshapenumber: Int = 1
-   
+    
     override func viewWillAppear(_ animated: Bool) {
         //始まる方向を指定
         blueShape.rotation = -0.5 * M_PI
@@ -88,6 +68,29 @@ class ViewController: CanvasController {
         }
     }
     
-   
+    func rect(){
+        
+        let orange = createCircle()
+        let orangeColor = Color(red: 226.0/255.0, green: 122.0/255.0, blue: 4.0/255.0, alpha: 1)
+        orange.fillColor = orangeColor
+        orange.strokeColor = orangeColor
+        orange.center = canvas.center
+        canvas.add(orange)
+        
+        // MARK: - Animations
+        let scale = Transform.makeScale(100, 100)
+        let fadeOutColor = Color(red: 0, green: 0, blue: 0, alpha: 0)
+        
+        let orangeAnim = ViewAnimation(duration: 1.0) {
+            orange.transform = scale
+            orange.fillColor = fadeOutColor
+        }
+        let sequence = ViewAnimationSequence(animations: [
+            orangeAnim
+            ])
+        wait(1.0){
+            sequence.animate()
+        }
+    }
 }
 
