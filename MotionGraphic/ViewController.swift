@@ -62,8 +62,8 @@ class ViewController: CanvasController {
             let disappear = ViewAnimation(duration: 2.0){
                 self.blueShape.strokeEnd = -1
             }
-            blueshapenumber = 0
             disappear.animate()
+            blueshapenumber = 0
         }
     }
     
@@ -92,7 +92,6 @@ class ViewController: CanvasController {
         }
     }
     @IBAction func didTapCanvas(_ sender: Any){
-        //        let move = ViewAnimation(duration:1.0){
         number = Int(arc4random_uniform(2))
         if number == 1{
             blueshape1()
@@ -101,7 +100,6 @@ class ViewController: CanvasController {
             rect()
         }
     }
-    //    move.animate()
 }
 
 
