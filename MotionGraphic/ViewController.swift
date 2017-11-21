@@ -12,6 +12,7 @@ import C4
 class ViewController: CanvasController {
     
     private var blueShape: Shape!
+    var number: Int!
     
     private func createCircle() -> Circle {
         let rect = Rect(0, 0, 50, 50)
@@ -35,9 +36,6 @@ class ViewController: CanvasController {
         
     }
     
-    @IBAction func didTapCanvas(_ sender: Any){
-        
-    }
     
     var blueshapenumber: Int = 1
     
@@ -64,6 +62,7 @@ class ViewController: CanvasController {
             let disappear = ViewAnimation(duration: 2.0){
                 self.blueShape.strokeEnd = -1
             }
+            blueshapenumber = 0
             disappear.animate()
         }
     }
@@ -92,5 +91,18 @@ class ViewController: CanvasController {
             sequence.animate()
         }
     }
+    @IBAction func didTapCanvas(_ sender: Any){
+        //        let move = ViewAnimation(duration:1.0){
+        number = Int(arc4random_uniform(2))
+        if number == 1{
+            blueshape1()
+            print("blueShape")
+        } else {
+            rect()
+        }
+    }
+    //    move.animate()
 }
+
+
 
