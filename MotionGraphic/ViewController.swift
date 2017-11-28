@@ -35,8 +35,6 @@ class ViewController: CanvasController {
         return shape
         
     }
-    
-    
     var blueshapenumber: Int = 1
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,18 +50,18 @@ class ViewController: CanvasController {
     }
     
     func blueshape1(){
-        if blueshapenumber == 1 {
-            let move = ViewAnimation(duration: 2.0){
-                self.blueShape.strokeEnd = 1
-            }
-            move.animate()
-            blueshapenumber = 0
-        }else{
-            let disappear = ViewAnimation(duration: 2.0){
+        
+        let move = ViewAnimation(duration: 1.5){
+            self.blueShape.strokeEnd = 1
+        }
+        move.animate()
+        blueshapenumber = 0
+        wait(2.0){
+            let disapper = ViewAnimation(duration:1.5){
                 self.blueShape.strokeEnd = -1
             }
-            disappear.animate()
-            blueshapenumber = 0
+            disapper.animate()
+            self.blueshapenumber = 1
         }
     }
     
@@ -87,7 +85,7 @@ class ViewController: CanvasController {
         let sequence = ViewAnimationSequence(animations: [
             orangeAnim
             ])
-        wait(1.0){
+        wait(0.5){
             sequence.animate()
         }
     }
