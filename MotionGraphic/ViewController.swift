@@ -19,7 +19,8 @@ class ViewController: CanvasController {
         return Circle(frame: rect)
     }
     override func setup() {
-        canvas.backgroundColor = black
+        canvas.backgroundColor = Color(red: 54, green: 79, blue:107
+            , alpha: 1.0)
         ShapeLayer.disableActions = true
         loadShape()
     }
@@ -31,7 +32,7 @@ class ViewController: CanvasController {
         shape.lineWidth = 20.0
         shape.strokeColor = color
         shape.fillColor = clear
-        self.canvas.add(shape)
+        
         return shape
         
     }
@@ -44,13 +45,14 @@ class ViewController: CanvasController {
     
     func loadShape(){
         //radius円の大きさ
-        blueShape = createShape(center: canvas.center, color: Color(red: 0.933, green: 1.0, blue:0.0, alpha: 1.0), radius: 55.0)
+        blueShape = createShape(center: canvas.center, color: Color(red: 252, green: 81, blue:133, alpha: 1.0), radius: 55.0)
         blueShape.strokeStart = 0.0
         blueShape.strokeEnd = 0.001
+        
     }
     
     func blueshape1(){
-        
+        self.canvas.add(blueShape)
         let move = ViewAnimation(duration: 1.0){
             self.blueShape.strokeEnd = 1
         }
@@ -62,48 +64,49 @@ class ViewController: CanvasController {
             }
             disapper.animate()
             self.blueshapenumber = 1
+            
         }
     }
     
     func rect(){
         
-        let orange = createCircle()
-        let orangeColor = Color(red: 0.933, green: 1.0, blue:0.0, alpha: 1.0)
-        orange.fillColor = orangeColor
-        orange.strokeColor = orangeColor
-        orange.center = canvas.center
-        canvas.add(orange)
+        let pink = createCircle()
+        let pinkColor = Color(red: 67, green: 221, blue:230, alpha: 1.0)
+        pink.fillColor = pinkColor
+        pink.strokeColor = pinkColor
+        pink.center = canvas.center
+        canvas.add(pink)
         
         // MARK: - Animations
         let scale = Transform.makeScale(100, 100)
-        let fadeOutColor = orangeColor
-        
-        let orangeAnim = ViewAnimation(duration: 1.0) {
-            orange.transform = scale
-            orange.fillColor = fadeOutColor
+        let fadeOutColor = pinkColor
+    
+        let pinkAnim = ViewAnimation(duration: 1.0) {
+            pink.transform = scale
+            pink.fillColor = fadeOutColor
         }
         let sequence = ViewAnimationSequence(animations: [
-            orangeAnim
+            pinkAnim
             ])
         sequence.duration = 0.5
         wait(0.5) {
             sequence.animate()
             
             wait(0.45){
-            self.canvas.backgroundColor = Color(red: 0.933, green: 1.0, blue:0.0, alpha: 1.0)
+                self.canvas.backgroundColor = Color(red: 67, green: 221, blue:230, alpha: 1.0)
             }
         }
     }
-        
+    
     @IBAction func didTapCanvas(_ sender: Any){
-//        number = Int(arc4random_uniform(2))
-//        if number == 1{
-//            blueshape1()
-//            print("blueShape")
-//        } else {
+        number = Int(arc4random_uniform(2))
+        if number == 1{
+            blueshape1()
+            print("blueShape")
+        } else {
             rect()
             print("Rect")
-//        }
+        }
     }
 }
 
