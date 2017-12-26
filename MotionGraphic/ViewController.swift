@@ -11,6 +11,7 @@ import C4
 
 class ViewController: CanvasController {
     
+    private var squareRectangle:Rectangle!
     private var blueShape: Shape!
     var number: Int!
     
@@ -23,6 +24,9 @@ class ViewController: CanvasController {
             , alpha: 1.0)
         ShapeLayer.disableActions = true
         loadShape()
+        let square = Rectangle(frame: Rect(0, 0, 40, 250))
+        square.center = canvas.center
+        canvas.add(square)
     }
     
     
@@ -41,6 +45,7 @@ class ViewController: CanvasController {
     override func viewWillAppear(_ animated: Bool) {
         //始まる方向を指定
         blueShape.rotation = -0.5 * Double.pi
+        squareRectangle.rotation = -0.5 * Double.pi
     }
     
     func loadShape(){
@@ -95,6 +100,32 @@ class ViewController: CanvasController {
             wait(0.45){
                 self.canvas.backgroundColor = Color(red: 67, green: 221, blue:230, alpha: 1.0)
             }
+        }
+        func squareRectangle1(center: Point, color: Color, radius: Double) -> Rectangle {
+            let square = Circle(center: center, radius: radius)
+            square.lineWidth = 20.0
+            square.strokeColor = Color(red: 238, green: 238, blue:238
+                , alpha: 1.0)
+            square.fillColor = Color(red: 238, green: 238, blue:238
+                , alpha: 1.0)
+            return squareRectangle
+        }
+        var squareRectanglenumber: Int = 1
+    }
+    func squareRectangle2(){
+        self.canvas.add(squareRectangle)
+        let move = ViewAnimation(duration: 1.0){
+            self.squareRectangle.strokeEnd = 1
+        }
+        move.animate()
+        squareRectanglenumber = 0
+        wait(1.1){
+            let disapper = ViewAnimation(duration:1.0){
+                self.squareRectangle.strokeEnd = -1
+            }
+            disapper.animate()
+            self.squareRectanglenumber = 1
+            
         }
     }
     
