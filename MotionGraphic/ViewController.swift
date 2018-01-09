@@ -85,20 +85,20 @@ class ViewController: CanvasController {
     }
     
     func animateRectangle() {
-        let square = Rectangle(frame: Rect(0, 0, 40, 1))
-        square.center = canvas.center
-        square.strokeColor = Color(red: 238, green: 238, blue:238
+        let squareCenter = Rectangle(frame: Rect(0, 0, 40, 1))
+        squareCenter.center = canvas.center
+        squareCenter.strokeColor = Color(red: 238, green: 238, blue:238
             , alpha: 1.0)
-        square.fillColor = Color(red: 238, green: 238, blue:238
+        squareCenter.fillColor = Color(red: 238, green: 238, blue:238
             , alpha: 1.0)
-        self.canvas.add(square)
+        self.canvas.add(squareCenter)
         let move = ViewAnimation(duration: 1.0){
-            square.bounds = Rect(0, 0, 40, 250)
-            square.strokeColor = Color(red: 238, green: 238, blue:238
+            squareCenter.bounds = Rect(0, 0, 40, 250)
+            squareCenter.strokeColor = Color(red: 238, green: 238, blue:238
                 , alpha: 1.0)
-            square.fillColor = Color(red: 238, green: 238, blue:238
+            squareCenter.fillColor = Color(red: 238, green: 238, blue:238
                 , alpha: 1.0)
-            square.center = self.canvas.center
+            squareCenter.center = self.canvas.center
         }
         move.animate()
         
