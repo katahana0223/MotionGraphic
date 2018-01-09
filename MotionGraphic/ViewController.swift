@@ -11,61 +11,42 @@ import C4
 
 class ViewController: CanvasController {
     
-    private var squareRectangle:Rectangle!
-    private var blueShape: Shape!
+    var blueshapenumber: Int = 1
+    var squareRectanglenumber: Int = 2
     var number: Int!
     
-    private func createCircle() -> Circle {
-        let rect = Rect(0, 0, 50, 50)
-        return Circle(frame: rect)
-    }
     override func setup() {
+        super.setup()
         canvas.backgroundColor = Color(red: 54, green: 79, blue:107
             , alpha: 1.0)
         ShapeLayer.disableActions = true
-        loadShape()
-        let square = Rectangle(frame: Rect(0, 0, 40, 250))
-        square.center = canvas.center
-        canvas.add(square)
     }
     
-    
-    func createShape(center: Point, color: Color, radius: Double) -> Shape {
-        
-        let shape = Circle(center: center, radius: radius)
-        shape.lineWidth = 20.0
-        shape.strokeColor = color
-        shape.fillColor = clear
-        
-        return shape
-        
-    }
-    var blueshapenumber: Int = 1
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+//        squareRectangle.rotation = -0.5 * Double.pi
+    }
+    
+    func animateShape() {
+        let blueShape = Circle(center: canvas.center, radius: 55.0)
         //始まる方向を指定
         blueShape.rotation = -0.5 * Double.pi
-        squareRectangle.rotation = -0.5 * Double.pi
-    }
-    
-    func loadShape(){
-        //radius円の大きさ
-        blueShape = createShape(center: canvas.center, color: Color(red: 252, green: 81, blue:133, alpha: 1.0), radius: 55.0)
+        blueShape.lineWidth = 20.0
+        blueShape.strokeColor = Color(red: 252, green: 81, blue:133, alpha: 1.0)
+        blueShape.fillColor = clear
         blueShape.strokeStart = 0.0
         blueShape.strokeEnd = 0.001
-        
-    }
-    
-    func blueshape1(){
         self.canvas.add(blueShape)
         let move = ViewAnimation(duration: 1.0){
-            self.blueShape.strokeEnd = 1
+            blueShape.strokeEnd = 1
         }
         move.animate()
         blueshapenumber = 0
         wait(1.1){
             let disapper = ViewAnimation(duration:1.0){
-                self.blueShape.strokeEnd = -1
+                blueShape.strokeEnd = -1
             }
             disapper.animate()
             self.blueshapenumber = 1
@@ -73,9 +54,9 @@ class ViewController: CanvasController {
         }
     }
     
-    func rect(){
+    func animateWithBackground(){
         
-        let pink = createCircle()
+        let pink = Circle(frame: Rect(0, 0, 50, 50))
         let pinkColor = Color(red: 67, green: 221, blue:230, alpha: 1.0)
         pink.fillColor = pinkColor
         pink.strokeColor = pinkColor
@@ -85,7 +66,7 @@ class ViewController: CanvasController {
         // MARK: - Animations
         let scale = Transform.makeScale(100, 100)
         let fadeOutColor = pinkColor
-    
+        
         let pinkAnim = ViewAnimation(duration: 1.0) {
             pink.transform = scale
             pink.fillColor = fadeOutColor
@@ -101,43 +82,41 @@ class ViewController: CanvasController {
                 self.canvas.backgroundColor = Color(red: 67, green: 221, blue:230, alpha: 1.0)
             }
         }
-        func squareRectangle1(center: Point, color: Color, radius: Double) -> Rectangle {
-            let square = Circle(center: center, radius: radius)
-            square.lineWidth = 20.0
+    }
+    
+    func animateRectangle() {
+        let square = Rectangle(frame: Rect(0, 0, 40, 1))
+        square.center = canvas.center
+        square.strokeColor = Color(red: 238, green: 238, blue:238
+            , alpha: 1.0)
+        square.fillColor = Color(red: 238, green: 238, blue:238
+            , alpha: 1.0)
+        self.canvas.add(square)
+        let move = ViewAnimation(duration: 1.0){
+            square.bounds = Rect(0, 0, 40, 250)
             square.strokeColor = Color(red: 238, green: 238, blue:238
                 , alpha: 1.0)
             square.fillColor = Color(red: 238, green: 238, blue:238
                 , alpha: 1.0)
-            return squareRectangle
-        }
-        var squareRectanglenumber: Int = 1
-    }
-    func squareRectangle2(){
-        self.canvas.add(squareRectangle)
-        let move = ViewAnimation(duration: 1.0){
-            self.squareRectangle.strokeEnd = 1
+            square.center = self.canvas.center
         }
         move.animate()
-        squareRectanglenumber = 0
-        wait(1.1){
-            let disapper = ViewAnimation(duration:1.0){
-                self.squareRectangle.strokeEnd = -1
-            }
-            disapper.animate()
-            self.squareRectanglenumber = 1
-            
-        }
+        
     }
     
     @IBAction func didTapCanvas(_ sender: Any){
         number = Int(arc4random_uniform(2))
-        if number == 1{
-            blueshape1()
-            print("blueShape")
-        } else {
-            rect()
-            print("Rect")
-        }
+        animateRectangle()
+//        if number == 1{
+//            animateShape()
+//            print("blueShape")
+//        }else if number == 2{
+//            animateRectangle()
+//            print("sqareRectangle")
+//        } else {
+//            animateWithBackground()
+//            print("Rect")
+//        }
     }
 }
 
