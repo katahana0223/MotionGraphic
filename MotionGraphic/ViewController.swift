@@ -92,6 +92,15 @@ class ViewController: CanvasController {
         squareCenter.fillColor = Color(red: 238, green: 238, blue:238
             , alpha: 1.0)
         self.canvas.add(squareCenter)
+        
+        let squareLeft = Rectangle(frame: Rect(30, 30, 40, 1))
+        let squareLeft = CGPoint(x:200,y:300)
+        squareLeft.strokeColor = Color(red: 238, green: 238, blue:238
+            , alpha: 1.0)
+        squareLeft.fillColor = Color(red: 238, green: 238, blue:238
+            , alpha: 1.0)
+        self.canvas.add(squareCenter)
+        
         let move = ViewAnimation(duration: 1.0){
             squareCenter.bounds = Rect(0, 0, 40, 250)
             squareCenter.strokeColor = Color(red: 238, green: 238, blue:238
@@ -99,6 +108,13 @@ class ViewController: CanvasController {
             squareCenter.fillColor = Color(red: 238, green: 238, blue:238
                 , alpha: 1.0)
             squareCenter.center = self.canvas.center
+            
+            squareLeft.bounds = Rect(0, 0, 40, 250)
+            squareLeft.strokeColor = Color(red: 238, green: 238, blue:238
+                , alpha: 1.0)
+            squareLeft.fillColor = Color(red: 238, green: 238, blue:238
+                , alpha: 1.0)
+        //座標指定のコードかく
         }
         move.animate()
         
