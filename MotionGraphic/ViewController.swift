@@ -80,26 +80,37 @@ class ViewController: CanvasController {
             
             wait(0.45){
                 self.canvas.backgroundColor = Color(red: 67, green: 221, blue:230, alpha: 1.0)
+                
             }
         }
     }
     
     func animateRectangle() {
         let squareCenter = Rectangle(frame: Rect(0, 0, 40, 1))
-        squareCenter.center = canvas.center
+        squareCenter.center = Point(canvas.center.x, canvas.center.y + 40)
         squareCenter.strokeColor = Color(red: 238, green: 238, blue:238
             , alpha: 1.0)
         squareCenter.fillColor = Color(red: 238, green: 238, blue:238
             , alpha: 1.0)
         self.canvas.add(squareCenter)
         
-        let squareLeft = Rectangle(frame: Rect(30, 30, 40, 1))
-        let squareLeft = CGPoint(x:200,y:300)
+        let squareLeft = Rectangle(frame: Rect(0, 0, 40, 1))
+        let interval = (canvas.bounds.width-120)/4
+        squareLeft.center = Point(canvas.center.x - interval - 20, canvas.center.y + 40)
+
         squareLeft.strokeColor = Color(red: 238, green: 238, blue:238
             , alpha: 1.0)
         squareLeft.fillColor = Color(red: 238, green: 238, blue:238
             , alpha: 1.0)
-        self.canvas.add(squareCenter)
+        self.canvas.add(squareLeft)
+        
+        let sqareright = Rectangle(frame: Rect(0, 0, 40, 1))
+        sqareright.center = Point(canvas.center.x + interval + 20, canvas.center.y + 40)
+        sqareright.strokeColor = Color(red: 238, green: 238, blue:238
+            , alpha: 1.0)
+        sqareright.fillColor = Color(red: 238, green: 238, blue:238
+            , alpha: 1.0)
+        self.canvas.add(sqareright)
         
         let move = ViewAnimation(duration: 1.0){
             squareCenter.bounds = Rect(0, 0, 40, 250)
@@ -113,6 +124,12 @@ class ViewController: CanvasController {
             squareLeft.strokeColor = Color(red: 238, green: 238, blue:238
                 , alpha: 1.0)
             squareLeft.fillColor = Color(red: 238, green: 238, blue:238
+                , alpha: 1.0)
+            
+            sqareright.bounds = Rect(0, 0, 40, 250)
+            sqareright.strokeColor = Color(red: 238, green: 238, blue:238
+                , alpha: 1.0)
+            sqareright.fillColor = Color(red: 238, green: 238, blue:238
                 , alpha: 1.0)
         //座標指定のコードかく
         }
