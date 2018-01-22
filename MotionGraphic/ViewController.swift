@@ -13,6 +13,7 @@ class ViewController: CanvasController {
     
     var blueshapenumber: Int = 1
     var squareRectanglenumber: Int = 2
+    var regularPolygonnumber: Int = 3
     var number: Int!
     
     override func setup() {
@@ -26,7 +27,7 @@ class ViewController: CanvasController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-//        squareRectangle.rotation = -0.5 * Double.pi
+        //        squareRectangle.rotation = -0.5 * Double.pi
     }
     
     func animateShape() {
@@ -97,7 +98,7 @@ class ViewController: CanvasController {
         let squareLeft = Rectangle(frame: Rect(0, 0, 40, 1))
         let interval = (canvas.bounds.width-120)/4
         squareLeft.center = Point(canvas.center.x - interval - 20, canvas.center.y + 40)
-
+        
         squareLeft.strokeColor = Color(red: 238, green: 238, blue:238
             , alpha: 1.0)
         squareLeft.fillColor = Color(red: 238, green: 238, blue:238
@@ -131,25 +132,47 @@ class ViewController: CanvasController {
                 , alpha: 1.0)
             sqareright.fillColor = Color(red: 238, green: 238, blue:238
                 , alpha: 1.0)
-        //座標指定のコードかく
+            //座標指定のコードかく
         }
         move.animate()
         
     }
+    func animatepolygon() {
+        let regularPolygon = RegularPolygon(center: canvas.center, radius: 70.0, sides: 6, phase: 0.0)
+        canvas.add(regularPolygon)
+        regularPolygon.strokeColor = Color(red: 238, green: 238, blue:238
+            , alpha: 1.0)
+        regularPolygon.fillColor = Color(red: 238, green: 238, blue:238
+            , alpha: 1.0)
+        let move = ViewAnimation(duration: 1.0){
+            regularPolygon.strokeEnd = 1
+        }
+        move.animate()
+        regularPolygonnumber = 0
+        wait(1.1){
+            let disapper = ViewAnimation(duration:1.0){
+                regularPolygon.strokeEnd = -1
+            }
+            disapper.animate()
+            self.regularPolygonnumber = 1
+        }
+    }
     
     @IBAction func didTapCanvas(_ sender: Any){
         number = Int(arc4random_uniform(2))
-        animateRectangle()
-//        if number == 1{
-//            animateShape()
-//            print("blueShape")
-//        }else if number == 2{
-//            animateRectangle()
-//            print("sqareRectangle")
-//        } else {
-//            animateWithBackground()
-//            print("Rect")
-//        }
+        animatepolygon()
+ 
+        
+        //        if number == 1{
+        //            animateShape()
+        //            print("blueShape")
+        //        }else if number == 2{
+        //            animateRectangle()
+        //            print("sqareRectangle")
+        //        } else {
+        //            animateWithBackground()
+        //            print("Rect")
+        //        }
     }
 }
 
