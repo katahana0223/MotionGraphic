@@ -133,7 +133,7 @@ class ViewController: CanvasController {
                 , alpha: 1.0)
             squareLeft.fillColor = Color(red: 238, green: 238, blue:238
                 , alpha: 1.0)
-            squareLeft.frame = Rect(squareLeft.center,Size(squareCenter.width,225))
+            squareLeft.frame = Rect(Point(squareLeft.center.x+0,squareLeft.center.y+250),Size(squareCenter.width,225))
            
             
             sqareright.bounds = Rect(0, 0, 40, 250)
@@ -148,7 +148,7 @@ class ViewController: CanvasController {
         
     }
     func animatepolygon() {
-        let regularPolygon = RegularPolygon(center: canvas.center, radius: 70.0, sides: 6, phase: 0.0)
+        let regularPolygon = RegularPolygon(center: canvas.center, radius: 70.0, sides: 5, phase: 0.0)
         canvas.add(regularPolygon)
         regularPolygon.strokeColor = Color(red: 238, green: 238, blue:238
             , alpha: 1.0)
