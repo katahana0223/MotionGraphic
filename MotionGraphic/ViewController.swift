@@ -133,7 +133,7 @@ class ViewController: CanvasController {
                 , alpha: 1.0)
             squareLeft.fillColor = Color(red: 238, green: 238, blue:238
                 , alpha: 1.0)
-            squareLeft.frame = Rect(Point(squareLeft.center.x+0,squareLeft.center.y+250),Size(squareCenter.width,225))
+            squareLeft.frame = Rect(Point(squareLeft.center.x-20,squareLeft.center.y+250),Size(squareCenter.width,225))
            
             
             sqareright.bounds = Rect(0, 0, 40, 250)
