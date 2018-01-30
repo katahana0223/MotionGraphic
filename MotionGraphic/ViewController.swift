@@ -12,8 +12,7 @@ import C4
 class ViewController: CanvasController {
     
     var blueshapenumber: Int = 1
-    var squareRectanglenumber: Int = 2
-    var regularPolygonnumber: Int = 3
+    var regularPolygonnumber: Int = 1
     var number: Int!
     
     override func setup() {
@@ -47,11 +46,34 @@ class ViewController: CanvasController {
         blueshapenumber = 0
         wait(1.1){
             let disapper = ViewAnimation(duration:1.0){
+            
                 blueShape.strokeEnd = -1
             }
             disapper.animate()
             self.blueshapenumber = 1
             
+        }
+    }
+    func animatepolygon() {
+        let regularPolygon = RegularPolygon(center: canvas.center, radius: 70.0, sides: 5, phase: -M_PI/10)
+        regularPolygon.lineWidth = 20.0
+        regularPolygon.strokeColor = Color(red: 238, green: 238, blue:238
+            , alpha: 1.0)
+        regularPolygon.fillColor = clear
+        regularPolygon.strokeStart = 0.0
+        regularPolygon.strokeEnd = 0.001
+        canvas.add(regularPolygon)
+        let move = ViewAnimation(duration: 1.0){
+            regularPolygon.strokeEnd = 1
+        }
+        move.animate()
+        regularPolygonnumber = 0
+        wait(1.1){
+            let disapper = ViewAnimation(duration:1.0){
+                regularPolygon.strokeEnd = -1
+            }
+            disapper.animate()
+            self.regularPolygonnumber = 1
         }
     }
     
@@ -120,68 +142,51 @@ class ViewController: CanvasController {
         self.canvas.add(sqareright)
         
         let move = ViewAnimation(duration: 1.0){
-            squareCenter.bounds = Rect(0, 0, 40, 250)
+            squareCenter.bounds = Rect(0, 0, 40, 240)
             squareCenter.strokeColor = Color(red: 238, green: 238, blue:238
                 , alpha: 1.0)
             squareCenter.fillColor = Color(red: 238, green: 238, blue:238
                 , alpha: 1.0)
-            squareCenter.frame = Rect(squareCenter.center,Size(squareCenter.width,225))
-    
+            squareCenter.frame = Rect(Point(squareCenter.center.x-20,squareCenter.center.y-240),Size(squareCenter.width,225))
             
-            squareLeft.bounds = Rect(0, 0, 40, 250)
+            
+            squareLeft.bounds = Rect(0, 0, 40, 240)
             squareLeft.strokeColor = Color(red: 238, green: 238, blue:238
                 , alpha: 1.0)
             squareLeft.fillColor = Color(red: 238, green: 238, blue:238
                 , alpha: 1.0)
-            squareLeft.frame = Rect(Point(squareLeft.center.x-20,squareLeft.center.y+250),Size(squareCenter.width,225))
-           
+            squareLeft.frame = Rect(Point(squareLeft.center.x-20,squareLeft.center.y-240),Size(squareCenter.width,225))
             
-            sqareright.bounds = Rect(0, 0, 40, 250)
+            
+            sqareright.bounds = Rect(0, 0, 40, 240)
             sqareright.strokeColor = Color(red: 238, green: 238, blue:238
                 , alpha: 1.0)
             sqareright.fillColor = Color(red: 238, green: 238, blue:238
                 , alpha: 1.0)
-            sqareright.frame = Rect(sqareright.center,Size(squareCenter.width,225))
+            sqareright.frame = Rect(Point(sqareright.center.x-20,sqareright.center.y-240),Size(squareCenter.width,225))
         }
         move.curve = .EaseOut
         move.animate()
         
     }
-    func animatepolygon() {
-        let regularPolygon = RegularPolygon(center: canvas.center, radius: 70.0, sides: 5, phase: 0.0)
-        canvas.add(regularPolygon)
-        regularPolygon.strokeColor = Color(red: 238, green: 238, blue:238
-            , alpha: 1.0)
-        regularPolygon.fillColor = Color(red: 238, green: 238, blue:238
-            , alpha: 1.0)
-        let move = ViewAnimation(duration: 1.0){
-            regularPolygon.strokeEnd = 1
-        }
-        move.animate()
-        regularPolygonnumber = 0
-        wait(1.1){
-            let disapper = ViewAnimation(duration:1.0){
-                regularPolygon.strokeEnd = -1
-            }
-            disapper.animate()
-            self.regularPolygonnumber = 1
-        }
-    }
+    
     
     @IBAction func didTapCanvas(_ sender: Any){
-        number = Int(arc4random_uniform(2))
-        animateRectangle()
+        number = Int(arc4random_uniform(4))
+        animatepolygon()
         
-        
-        //        if number == 1{
-        //            animateShape()
-        //            print("blueShape")
-        //        }else if number == 2{
-        //            animateRectangle()
-        //            print("sqareRectangle")
-        //        } else {
-        //            animateWithBackground()
-        //            print("Rect")
+        //                if number == 1{
+        //                    animateShape()
+        //                    print("blueShape")
+        //                }else if number == 2{
+        //                    animateRectangle()
+        //                    print("sqareRectangle")
+        //                } else if number == 3{
+        //                    animateWithBackground()
+        //                    print("Background")
+        //                }else{
+        //                    animatepolygon()
+        //                    print("polygon")
         //        }
     }
 }
