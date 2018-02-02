@@ -46,7 +46,7 @@ class ViewController: CanvasController {
         blueshapenumber = 0
         wait(1.1){
             let disapper = ViewAnimation(duration:1.0){
-            
+                
                 blueShape.strokeEnd = -1
             }
             disapper.animate()
@@ -176,7 +176,7 @@ class ViewController: CanvasController {
         triangle.fillColor = clear
         triangle.lineWidth = 10
         canvas.add(triangle)
-       
+        
         let points2 = [Point(0,100*sin(Double.pi/3)),Point(50,0),Point(100,100*sin(Double.pi/3))]
         let triangle2 = Triangle(points2)
         triangle2.center = canvas.center
@@ -191,20 +191,19 @@ class ViewController: CanvasController {
     
     @IBAction func didTapCanvas(_ sender: Any){
         number = Int(arc4random_uniform(4))
-        animateTriangle()
-        //                if number == 1{
-        //                    animateShape()
-        //                    print("blueShape")
-        //                }else if number == 2{
-        //                    animateRectangle()
-        //                    print("sqareRectangle")
-        //                } else if number == 3{
-        //                    animateWithBackground()
-        //                    print("Background")
-        //                }else{
-        //                    animatepolygon()
-        //                    print("polygon")
-        //        }
+        if number == 1{
+            animateShape()
+            print("blueShape")
+        }else if number == 2{
+            animateRectangle()
+            print("sqareRectangle")
+        } else if number == 3{
+            animateWithBackground()
+            print("Background")
+        }else{
+            animatepolygon()
+            print("polygon")
+        }
     }
 }
 
