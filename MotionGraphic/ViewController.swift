@@ -33,7 +33,7 @@ class ViewController: CanvasController {
         let blueShape = Circle(center: canvas.center, radius: 55.0)
         //始まる方向を指定
         blueShape.rotation = -0.5 * Double.pi
-        blueShape.lineWidth = 20.0
+        blueShape.lineWidth = 20
         blueShape.strokeColor = Color(red: 252, green: 81, blue:133, alpha: 1.0)
         blueShape.fillColor = clear
         blueShape.strokeStart = 0.0
@@ -55,7 +55,7 @@ class ViewController: CanvasController {
         }
     }
     func animatepolygon() {
-        let regularPolygon = RegularPolygon(center: canvas.center, radius: 70.0, sides: 5, phase: -M_PI/10)
+        let regularPolygon = RegularPolygon(center: canvas.center, radius: 70.0, sides: 5, phase: -Double.pi/10)
         regularPolygon.lineWidth = 20.0
         regularPolygon.strokeColor = Color(red: 238, green: 238, blue:238
             , alpha: 1.0)
@@ -142,39 +142,56 @@ class ViewController: CanvasController {
         self.canvas.add(sqareright)
         
         let move = ViewAnimation(duration: 1.0){
-            squareCenter.bounds = Rect(0, 0, 40, 240)
+            squareCenter.bounds = Rect(0, 0, 40, 200)
             squareCenter.strokeColor = Color(red: 238, green: 238, blue:238
                 , alpha: 1.0)
             squareCenter.fillColor = Color(red: 238, green: 238, blue:238
                 , alpha: 1.0)
-            squareCenter.frame = Rect(Point(squareCenter.center.x-20,squareCenter.center.y-240),Size(squareCenter.width,225))
+            squareCenter.frame = Rect(Point(squareCenter.center.x-20,squareCenter.center.y-200),Size(squareCenter.width,200))
             
             
-            squareLeft.bounds = Rect(0, 0, 40, 240)
+            squareLeft.bounds = Rect(0, 0, 40, 200)
             squareLeft.strokeColor = Color(red: 238, green: 238, blue:238
                 , alpha: 1.0)
             squareLeft.fillColor = Color(red: 238, green: 238, blue:238
                 , alpha: 1.0)
-            squareLeft.frame = Rect(Point(squareLeft.center.x-20,squareLeft.center.y-240),Size(squareCenter.width,225))
+            squareLeft.frame = Rect(Point(squareLeft.center.x-20,squareLeft.center.y-200),Size(squareCenter.width,200))
             
             
-            sqareright.bounds = Rect(0, 0, 40, 240)
+            sqareright.bounds = Rect(0, 0, 40, 200)
             sqareright.strokeColor = Color(red: 238, green: 238, blue:238
                 , alpha: 1.0)
             sqareright.fillColor = Color(red: 238, green: 238, blue:238
                 , alpha: 1.0)
-            sqareright.frame = Rect(Point(sqareright.center.x-20,sqareright.center.y-240),Size(squareCenter.width,225))
+            sqareright.frame = Rect(Point(sqareright.center.x-20,sqareright.center.y-200),Size(squareCenter.width,200))
         }
         move.curve = .EaseOut
         move.animate()
         
     }
+    func animateTriangle(){
+        let points = [Point(0,100*sin(Double.pi/3)),Point(50,0),Point(100,100*sin(Double.pi/3))]
+        let triangle = Triangle(points)
+        triangle.center = canvas.center
+        triangle.fillColor = clear
+        triangle.lineWidth = 10
+        canvas.add(triangle)
+       
+        let points2 = [Point(0,100*sin(Double.pi/3)),Point(50,0),Point(100,100*sin(Double.pi/3))]
+        let triangle2 = Triangle(points2)
+        triangle2.center = canvas.center
+        triangle2.strokeColor =  Color(red: 238, green: 238, blue:238
+            , alpha: 1.0)
+        triangle2.fillColor =  Color(red: 238, green: 238, blue:238
+            , alpha: 1.0)
+        triangle2.lineWidth = 1
+        canvas.add(triangle2)
+    }
     
     
     @IBAction func didTapCanvas(_ sender: Any){
         number = Int(arc4random_uniform(4))
-        animatepolygon()
-        
+        animateTriangle()
         //                if number == 1{
         //                    animateShape()
         //                    print("blueShape")
