@@ -13,7 +13,10 @@ class ViewController: CanvasController {
     
     var blueshapenumber: Int = 1
     var regularPolygonnumber: Int = 1
+    var rectanglenumber: Int = 1
     var number: Int!
+    
+    
     
     override func setup() {
         super.setup()
@@ -110,10 +113,21 @@ class ViewController: CanvasController {
     
     func animateRectangle() {
         
-        let squareCenter = Rectangle(frame: Rect(0, 0, 40, 0))
+        let squareLeft = Rectangle(frame: Rect(0, 0, 40, 0))
         //場所指定
-        squareCenter.center = Point(canvas.center.x, canvas.center.y + 40)
+        let interval = (canvas.bounds.width-120)/4
+        squareLeft.center = Point(canvas.center.x - interval - 20, canvas.center.y + 40)
         //角
+        squareLeft.corner = Size(0,0)
+        squareLeft.strokeColor = Color(red: 238, green: 238, blue:238
+            , alpha: 1.0)
+        squareLeft.fillColor = Color(red: 238, green: 238, blue:238
+            , alpha: 1.0)
+        self.canvas.add(squareLeft)
+        
+        
+        let squareCenter = Rectangle(frame: Rect(0, 0, 40, 0))
+        squareCenter.center = Point(canvas.center.x, canvas.center.y + 40)
         squareCenter.corner = Size(0,0)
         squareCenter.strokeColor = Color(red: 238, green: 238, blue:238
             , alpha: 1.0)
@@ -121,16 +135,6 @@ class ViewController: CanvasController {
             , alpha: 1.0)
         self.canvas.add(squareCenter)
         
-        
-        let squareLeft = Rectangle(frame: Rect(0, 0, 40, 0))
-        let interval = (canvas.bounds.width-120)/4
-        squareLeft.center = Point(canvas.center.x - interval - 20, canvas.center.y + 40)
-        squareLeft.corner = Size(0,0)
-        squareLeft.strokeColor = Color(red: 238, green: 238, blue:238
-            , alpha: 1.0)
-        squareLeft.fillColor = Color(red: 238, green: 238, blue:238
-            , alpha: 1.0)
-        self.canvas.add(squareLeft)
         
         let sqareright = Rectangle(frame: Rect(0, 0, 40, 0))
         sqareright.center = Point(canvas.center.x + interval + 20, canvas.center.y + 40)
@@ -167,45 +171,74 @@ class ViewController: CanvasController {
         }
         move.curve = .EaseOut
         move.animate()
+        rectanglenumber = 0
         
     }
     func animateTriangle(){
         let points = [Point(0,100*sin(Double.pi/3)),Point(50,0),Point(100,100*sin(Double.pi/3))]
         let triangle = Triangle(points)
         triangle.center = canvas.center
-        triangle.fillColor = clear
-        triangle.lineWidth = 10
+        triangle.fillColor = C4Pink
+        triangle.strokeColor = clear
+        triangle.lineWidth = 1
         canvas.add(triangle)
+        
         
         let points2 = [Point(0,100*sin(Double.pi/3)),Point(50,0),Point(100,100*sin(Double.pi/3))]
         let triangle2 = Triangle(points2)
         triangle2.center = canvas.center
-        triangle2.strokeColor =  Color(red: 238, green: 238, blue:238
-            , alpha: 1.0)
+        triangle2.strokeColor = clear
         triangle2.fillColor =  Color(red: 238, green: 238, blue:238
             , alpha: 1.0)
         triangle2.lineWidth = 1
         canvas.add(triangle2)
+        
+        let points3 = [Point(0,100*sin(Double.pi/3)),Point(50,0),Point(100,100*sin(Double.pi/3))]
+        let triangle3 = Triangle(points3)
+        triangle3.center = canvas.center
+        triangle3.strokeColor = clear
+        triangle3.fillColor = C4Grey
+        triangle3.lineWidth = 1
+        canvas.add(triangle3)
+        
+        let move = ViewAnimation(duration: 0.5){
+            
+            let rotate = Transform.makeRotation(Double.pi/5)
+            let rotate2 = Transform.makeRotation(Double.pi/5)
+            let rotate3 = Transform.makeRotation(Double.pi/5)
+            triangle.transform = rotate
+            triangle2.transform = rotate2
+            triangle3.transform = rotate3
+            
+            let animationn = CABasicAnimation(keyPath: "cornerRadius")
+            //遅延実行beginTime
+            animationn.beginTime = CACurrentMediaTime() + 0.5
+            triangle2.layer?.add(animationn, forKey: nil)
+        }
+        move.animate()
+        
     }
     
     
     @IBAction func didTapCanvas(_ sender: Any){
         number = Int(arc4random_uniform(4))
-        if number == 1{
-            animateShape()
-            print("blueShape")
-        }else if number == 2{
-            animateRectangle()
-            print("sqareRectangle")
-        } else if number == 3{
-            animateWithBackground()
-            print("Background")
-        }else{
-            animatepolygon()
-            print("polygon")
-        }
+        animateTriangle()
+        //        if number == 1{
+        //            animateShape()
+        //            print("blueShape"
+        //        }else if number == 2{
+        //            animateRectangle()
+        //            print("sqareRectangle")
+        //        } else if number == 3{
+        //            animateWithBackground()
+        //            print("Background")
+        //        }else{
+        //            animatepolygon()
+        //            print("polygon")
+        //        }
+        //    }
     }
+    
+    
+    
 }
-
-
-
