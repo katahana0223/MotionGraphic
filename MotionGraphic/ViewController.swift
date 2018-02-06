@@ -55,7 +55,7 @@ class ViewController: CanvasController {
             }
             disapper.animate()
             self.blueshapenumber = 1
-        
+            
         }
     }
     func animatepolygon() {
@@ -174,76 +174,86 @@ class ViewController: CanvasController {
         move.animate()
         rectanglenumber = 0
         let disapper = ViewAnimation(duration:1.0){
-            
+            squareCenter.strokeEnd = -1
         }
-            disapper.animate()
-
+        disapper.animate()
+        self.rectanglenumber = 1
         
+        
+    }
+    func animateTriangle(){
+        
+        //最背面
+        let points = [Point(0,100*sin(Double.pi/3)),Point(50,0),Point(100,100*sin(Double.pi/3))]
+        let triangle = Triangle(points)
+        triangle.center = canvas.center
+        triangle.fillColor = C4Pink
+        triangle.strokeColor = clear
+        triangle.lineWidth = 1
+        canvas.add(triangle)
+        
+        
+        let points2 = [Point(0,100*sin(Double.pi/3)),Point(50,0),Point(100,100*sin(Double.pi/3))]
+        let triangle2 = Triangle(points2)
+        triangle2.center = canvas.center
+        triangle2.strokeColor = clear
+        triangle2.fillColor =  Color(red: 238, green: 238, blue:238
+            , alpha: 1.0)
+        triangle2.lineWidth = 1
+        canvas.add(triangle2)
+        
+        //最前面
+        let points3 = [Point(0,100*sin(Double.pi/3)),Point(50,0),Point(100,100*sin(Double.pi/3))]
+        let triangle3 = Triangle(points3)
+        triangle3.center = canvas.center
+        triangle3.strokeColor = clear
+        triangle3.fillColor = Color(red: 238, green: 238, blue:238
+            , alpha: 1.0)
+        triangle3.lineWidth = 1
+        canvas.add(triangle3)
+        
+        
+        let move = ViewAnimation(duration: 2.0){
+            let rotate = Transform.makeRotation(Double.pi/3)
+            triangle.transform = rotate
         }
-        func animateTriangle(){
-            //最背面
-            let points = [Point(0,100*sin(Double.pi/3)),Point(50,0),Point(100,100*sin(Double.pi/3))]
-            let triangle = Triangle(points)
-            triangle.center = canvas.center
-            triangle.fillColor = C4Pink
-            triangle.strokeColor = clear
-            triangle.lineWidth = 1
-            canvas.add(triangle)
-            
-            
-            let points2 = [Point(0,100*sin(Double.pi/3)),Point(50,0),Point(100,100*sin(Double.pi/3))]
-            let triangle2 = Triangle(points2)
-            triangle2.center = canvas.center
-            triangle2.strokeColor = clear
-            triangle2.fillColor =  Color(red: 238, green: 238, blue:238
-                , alpha: 1.0)
-            triangle2.lineWidth = 1
-            canvas.add(triangle2)
-            
-            //最前面
-            let points3 = [Point(0,100*sin(Double.pi/3)),Point(50,0),Point(100,100*sin(Double.pi/3))]
-            let triangle3 = Triangle(points3)
-            triangle3.center = canvas.center
-            triangle3.strokeColor = clear
-            triangle3.fillColor = Color(red: 238, green: 238, blue:238
-                , alpha: 1.0)
-            triangle3.lineWidth = 1
-            canvas.add(triangle3)
-            
-            
-            let move = ViewAnimation(duration: 0.5){
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                    let rotate = Transform.makeRotation(Double.pi/5)
-                    triangle.transform = rotate
-                }
-                
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                    let rotate2 = Transform.makeRotation(Double.pi/5)
-                    triangle2.transform = rotate2
-                }
-                
-                let rotate3 = Transform.makeRotation(Double.pi/5)
-                triangle3.transform = rotate3
-            }
+        wait(1.0){
             move.animate()
-            
-            
+        }
+        
+        let move2 = ViewAnimation(duration: 2.0){
+            let rotate2 = Transform.makeRotation(Double.pi/3)
+            triangle2.transform = rotate2
+        }
+        wait(0.5){
+            move2.animate()
         }
         
         
-        @IBAction func didTapCanvas(_ sender: Any){
-            number = Int(arc4random_uniform(3))
-                    if number == 1{
-                        animateShape()
-                        print("blueShape")
-                    }else if number == 2{
-                        animateWithBackground()
-                        print("Background")
-                    } else{
-                        animatepolygon()
-                        print("polygon")
-                    }
+        let move3 = ViewAnimation(duration: 2.0){
+            let rotate3 = Transform.makeRotation(Double.pi/3)
+            triangle3.transform = rotate3
         }
+        move3.animate()
+        
+    }
+    
+    
+    @IBAction func didTapCanvas(_ sender: Any){
+        number = Int(arc4random_uniform(3))
+        animateTriangle()
+        //        if number == 1{
+        //            animateShape()
+        //            print("blueShape")
+        //        }else if number == 2{
+        //            animateWithBackground()
+        //            print("sqareRectangle")
+        //        } else{
+        //           animatepolygon()
+        //            print("Background")
+        //
+        //        }
+    }
 }
 
 
