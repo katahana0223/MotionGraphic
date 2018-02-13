@@ -11,6 +11,8 @@ import C4
 
 class ViewController: CanvasController {
     
+    var startPoint:CGPoint!
+    var endPoint:CGPoint!
     var blueshapenumber: Int = 1
     var regularPolygonnumber: Int = 1
     var rectanglenumber: Int = 1
@@ -33,25 +35,26 @@ class ViewController: CanvasController {
         //        squareRectangle.rotation = -0.5 * Double.pi
     }
     
+    
     func animateShape() {
-        let blueShape = Circle(center: canvas.center, radius: 55.0)
+        let pinkShape = Circle(center: canvas.center, radius: 55.0)
         //始まる方向を指定
-        blueShape.rotation = -0.5 * Double.pi
-        blueShape.lineWidth = 20
-        blueShape.strokeColor = Color(red: 252, green: 81, blue:133, alpha: 1.0)
-        blueShape.fillColor = clear
-        blueShape.strokeStart = 0.0
-        blueShape.strokeEnd = 0.001
-        self.canvas.add(blueShape)
+        pinkShape.rotation = -0.5 * Double.pi
+        pinkShape.lineWidth = 20
+        pinkShape.strokeColor = Color(red: 252, green: 81, blue:133, alpha: 1.0)
+        pinkShape.fillColor = clear
+        pinkShape.strokeStart = 0.0
+        pinkShape.strokeEnd = 0.001
+        self.canvas.add(pinkShape)
         let move = ViewAnimation(duration: 1.0){
-            blueShape.strokeEnd = 1
+            pinkShape.strokeEnd = 1
         }
         move.animate()
         blueshapenumber = 0
         wait(1.1){
             let disapper = ViewAnimation(duration:1.0){
                 
-                blueShape.strokeEnd = -1
+                pinkShape.strokeEnd = -1
             }
             disapper.animate()
             self.blueshapenumber = 1
@@ -172,6 +175,7 @@ class ViewController: CanvasController {
         }
         move.curve = .EaseOut
         move.animate()
+        move.autoreverses = true
         rectanglenumber = 0
         let disapper = ViewAnimation(duration:1.0){
             squareCenter.strokeEnd = -1
@@ -213,46 +217,68 @@ class ViewController: CanvasController {
         canvas.add(triangle3)
         
         
-        let move = ViewAnimation(duration: 2.0){
+        let move = ViewAnimation(duration: 1.0){
             let rotate = Transform.makeRotation(Double.pi/3)
             triangle.transform = rotate
         }
-        wait(1.0){
+        wait(0.5){
             move.animate()
+            move.autoreverses = true
         }
         
-        let move2 = ViewAnimation(duration: 2.0){
+        let move2 = ViewAnimation(duration: 1.0){
             let rotate2 = Transform.makeRotation(Double.pi/3)
             triangle2.transform = rotate2
         }
-        wait(0.5){
+        wait(0.25){
             move2.animate()
+            move2.autoreverses = true
         }
         
-        
-        let move3 = ViewAnimation(duration: 2.0){
+        let move3 = ViewAnimation(duration: 1.0){
             let rotate3 = Transform.makeRotation(Double.pi/3)
             triangle3.transform = rotate3
         }
         move3.animate()
+        //逆再生
+        move3.autoreverses = true
         
     }
     
     
-    @IBAction func didTapCanvas(_ sender: Any){
-        number = Int(arc4random_uniform(3))
+    @IBAction func didTapCanvas(_ sender: UIPanGestureRecognizer){
+
+        //        let move:CGPoint = sender.translation(in: self.view)
+        let state = sender.state
+        let translation = sender.translation(in: view)
+        print("state=\(state.rawValue) translation=\(translation)")
+        if state == .began {
+            startPoint = sender.view!.center
+            print("startPoint=\(startPoint)")
+        }
+        if state == .ended{
+            endPoint = sender.view!.center
+            print("lastPoint\(endPoint)")
+        }
+        
+        let dx = Double(endPoint.x - startPoint.x)
+        let dy = Double(endPoint.y - endPoint.y)
+        //sqrt 平方根
+        print(fabs(sqrt(dx*dx + dy*dy)))
+        //        number = Int(arc4random_uniform(3))
         animateTriangle()
-        //        if number == 1{
-        //            animateShape()
-        //            print("blueShape")
-        //        }else if number == 2{
-        //            animateWithBackground()
-        //            print("sqareRectangle")
-        //        } else{
-        //           animatepolygon()
-        //            print("Background")
+        
+        //                if number == 1{
+        //                    animateShape()
+        //                    print("blueShape")
+        //                }else if number == 2{
+        //                    animateWithBackground()
+        //                    print("sqareRectangle")
+        //                } else{
+        //                   animatepolygon()
+        //                    print("Background")
         //
-        //        }
+        //                }
     }
 }
 
