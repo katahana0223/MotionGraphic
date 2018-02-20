@@ -247,7 +247,7 @@ class ViewController: CanvasController {
     
     
     @IBAction func didTapCanvas(_ sender: UIPanGestureRecognizer){
-
+        
         //        let move:CGPoint = sender.translation(in: self.view)
         let state = sender.state
         let translation = sender.translation(in: view)
@@ -261,10 +261,19 @@ class ViewController: CanvasController {
             print("lastPoint\(endPoint)")
         }
         
-        let dx = Double(endPoint.x - startPoint.x)
-        let dy = Double(endPoint.y - endPoint.y)
-        //sqrt 平方根
-        print(fabs(sqrt(dx*dx + dy*dy)))
+        if endPoint != nil {
+        
+            let dx = Double(startPoint.x - endPoint.x)
+            let dy = Double(startPoint.y - endPoint.y)
+            
+             //sqrt 平方根
+               print(sqrt(dx*dx + dy*dy))
+        }
+    
+     
+        
+       
+        
         //        number = Int(arc4random_uniform(3))
         animateTriangle()
         
