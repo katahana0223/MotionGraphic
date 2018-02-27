@@ -13,7 +13,7 @@ class ViewController: CanvasController {
     
     var startPoint:CGPoint!
     var endPoint:CGPoint!
-    var blueshapenumber: Int = 1
+    var pinkshapenumber : Int = 1
     var regularPolygonnumber: Int = 1
     var rectanglenumber: Int = 1
     var trianglenumber: Int = 1
@@ -50,14 +50,13 @@ class ViewController: CanvasController {
             pinkShape.strokeEnd = 1
         }
         move.animate()
-        blueshapenumber = 0
         wait(1.1){
             let disapper = ViewAnimation(duration:1.0){
                 
                 pinkShape.strokeEnd = -1
             }
             disapper.animate()
-            self.blueshapenumber = 1
+//            self.blueshapenumber = 1
             
         }
     }
@@ -74,7 +73,7 @@ class ViewController: CanvasController {
             regularPolygon.strokeEnd = 1
         }
         move.animate()
-        regularPolygonnumber = 0
+        
         wait(1.1){
             let disapper = ViewAnimation(duration:1.0){
                 regularPolygon.strokeEnd = -1
@@ -149,7 +148,7 @@ class ViewController: CanvasController {
             , alpha: 1.0)
         self.canvas.add(sqareright)
         
-        let move = ViewAnimation(duration: 1.0){
+        let move = ViewAnimation(duration: 0.8){
             squareCenter.bounds = Rect(0, 0, 40, 200)
             squareCenter.strokeColor = Color(red: 238, green: 238, blue:238
                 , alpha: 1.0)
@@ -176,22 +175,23 @@ class ViewController: CanvasController {
         move.curve = .EaseOut
         move.animate()
         move.autoreverses = true
-        rectanglenumber = 0
         let disapper = ViewAnimation(duration:1.0){
             squareCenter.strokeEnd = -1
+            sqareright.strokeEnd = -1
+            squareLeft.strokeEnd = -1
         }
         disapper.animate()
-        self.rectanglenumber = 1
         
         
     }
+    
     func animateTriangle(){
-        
         //最背面
         let points = [Point(0,100*sin(Double.pi/3)),Point(50,0),Point(100,100*sin(Double.pi/3))]
         let triangle = Triangle(points)
         triangle.center = canvas.center
-        triangle.fillColor = C4Pink
+        triangle.fillColor =  Color(red: 238, green: 238, blue:238
+            , alpha: 1.0)
         triangle.strokeColor = clear
         triangle.lineWidth = 1
         canvas.add(triangle)
@@ -201,8 +201,7 @@ class ViewController: CanvasController {
         let triangle2 = Triangle(points2)
         triangle2.center = canvas.center
         triangle2.strokeColor = clear
-        triangle2.fillColor =  Color(red: 238, green: 238, blue:238
-            , alpha: 1.0)
+        triangle2.fillColor = C4Pink
         triangle2.lineWidth = 1
         canvas.add(triangle2)
         
@@ -224,6 +223,7 @@ class ViewController: CanvasController {
         wait(0.5){
             move.animate()
             move.autoreverses = true
+    
         }
         
         let move2 = ViewAnimation(duration: 1.0){
@@ -241,53 +241,69 @@ class ViewController: CanvasController {
         }
         move3.animate()
         //逆再生
-        move3.autoreverses = true
         
+        move3.autoreverses = true
+        let disapper = ViewAnimation(duration:1.5){
+            
+            triangle.fillColor = clear
+            triangle2.fillColor = clear
+           triangle3.fillColor = clear
+            
+        }
+        disapper.animate()
+
     }
     
     
-    @IBAction func didTapCanvas(_ sender: UIPanGestureRecognizer){
-        
-        //        let move:CGPoint = sender.translation(in: self.view)
-        let state = sender.state
-        let translation = sender.translation(in: view)
-        print("state=\(state.rawValue) translation=\(translation)")
-        if state == .began {
-            startPoint = sender.view!.center
-            print("startPoint=\(startPoint)")
-        }
-        if state == .ended{
-            endPoint = sender.view!.center
-            print("lastPoint\(endPoint)")
-        }
-        
-        if endPoint != nil {
-        
-            let dx = Double(startPoint.x - endPoint.x)
-            let dy = Double(startPoint.y - endPoint.y)
-            
-             //sqrt 平方根
-               print(sqrt(dx*dx + dy*dy))
-        }
-    
+    @IBAction func didTapCanvas(_ sender: UITapGestureRecognizer){
+//
+//        //        let move:CGPoint = sender.translation(in: self.view)
+//        let state = sender.state
+//        let translation = sender.translation(in: view)
+//        print("state=\(state.rawValue) translation=\(translation)")
+//        if state == .began {
+//            startPoint = sender.view!.center
+//            print("startPoint=\(startPoint)")
+//        }
+//        if state == .ended{
+//            endPoint = sender.view!.center
+//            print("lastPoint\(endPoint)")
+//        }
+//
+//        if endPoint != nil {
+//
+//            let dx = Double(startPoint.x - endPoint.x)
+//            let dy = Double(startPoint.y - endPoint.y)
+//
+//             //sqrt 平方根
+//               print(sqrt(dx*dx + dy*dy))
+//        }
+//
      
         
        
         
-        //        number = Int(arc4random_uniform(3))
-        animateTriangle()
-        
-        //                if number == 1{
-        //                    animateShape()
-        //                    print("blueShape")
-        //                }else if number == 2{
-        //                    animateWithBackground()
-        //                    print("sqareRectangle")
-        //                } else{
-        //                   animatepolygon()
-        //                    print("Background")
-        //
-        //                }
+                number = Int(arc4random_uniform(4))
+//        animateTriangle()
+
+                        if number == 1{
+                            animateShape()
+                            print("blueShape")
+                        }else if number == 2{
+                            animatepolygon()
+                            print("polygon")
+                        } else if number == 3{
+                           animateWithBackground()
+                            print("Background")
+                        } else if number == 4{
+                            animateRectangle()
+                            print("Rectangle")
+                        }else{
+                            animateTriangle()
+                            print("Triangle")
+                            
+                            
+        }
     }
 }
 
