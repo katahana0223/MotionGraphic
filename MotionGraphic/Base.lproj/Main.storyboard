@@ -23,16 +23,16 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <connections>
-                            <outletCollection property="gestureRecognizers" destination="Fmq-Ga-9YX" appends="YES" id="i51-dP-28j"/>
+                            <outletCollection property="gestureRecognizers" destination="1NS-Gz-vO1" appends="YES" id="3lo-66-602"/>
                         </connections>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="Fmq-Ga-9YX">
+                <panGestureRecognizer minimumNumberOfTouches="1" id="1NS-Gz-vO1">
                     <connections>
-                        <action selector="didTapCanvas:" destination="BYZ-38-t0r" id="Lng-g3-0X9"/>
+                        <action selector="didTapCanvas:" destination="BYZ-38-t0r" id="wM2-Jn-xNB"/>
                     </connections>
-                </tapGestureRecognizer>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="366" y="94"/>
         </scene>
