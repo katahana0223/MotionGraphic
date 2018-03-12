@@ -85,20 +85,29 @@ class ViewController: CanvasController {
     
     func animateWithBackground(){
         
-        let pink = Circle(frame: Rect(0, 0, 50, 50))
-        let pinkColor = backgroundcolor()
-        func backgroundcolor(){
-            number = Int(arc4random_uniform(2))
+        
+        func backgroundcolor() -> Color {
+            number = Int(arc4random_uniform(3))
             if number == 1{
                 let pinkColor = Color(red: 67, green: 221, blue:230, alpha: 1.0)
+                return pinkColor
+                
             }
             if number == 2{
-                let pinkColor = Color(red: 67, green: 0, blue:230, alpha: 1.0)
+                let pinkColor = Color(red: 237, green: 182, blue:53, alpha: 1.0)
+                return pinkColor
+                
             }
-            if number == 3{
-                let pinkColor =  Color(red: 67, green: 221, blue:0, alpha: 1.0)
-            }
+            //            if number == 3{
+            //                let pinkColor =  Color(red: 67, green: 221, blue:0, alpha: 1.0)
+            //                return pinkColor
+            //
+            //            }
+            return Color(red: 54, green: 79, blue:107, alpha: 1.0)
         }
+        let pink = Circle(frame: Rect(0, 0, 50, 50))
+        let pinkColor = backgroundcolor()
+        
         pink.fillColor = pinkColor
         pink.strokeColor = pinkColor
         pink.center = canvas.center
@@ -269,7 +278,7 @@ class ViewController: CanvasController {
     }
     
     
-    @IBAction func didTapCanvas(_ sender: UIPanGestureRecognizer){
+    @IBAction func didTapCanvas(_ sender: UITapGestureRecognizer){
         //
         //        //        let move:CGPoint = sender.translation(in: self.view)
         //        let state = sender.state
@@ -298,26 +307,26 @@ class ViewController: CanvasController {
         
         
         number = Int(arc4random_uniform(4))
-        animateWithBackground()
+      
         
-        //                        if number == 1{
-        //                            animateShape()
-        //                            print("blueShape")
-        //                        }else if number == 2{
-        //                            animatepolygon()
-        //                            print("polygon")
-        //                        } else if number == 3{
-        //                           animateWithBackground()
-        //                            print("Background")
-        //                        } else if number == 4{
-        //                            animateRectangle()
-        //                            print("Rectangle")
-        //                        }else{
-        //                            animateTriangle()
-        //                            print("Triangle")
-        //
-        //
-        //        }
+        if number == 1{
+            animateShape()
+            print("blueShape")
+        }else if number == 2{
+            animatepolygon()
+            print("polygon")
+        } else if number == 3{
+            animateWithBackground()
+            print("Background")
+        } else if number == 4{
+            animateRectangle()
+            print("Rectangle")
+        }else{
+            animateTriangle()
+            print("Triangle")
+            
+            
+        }
     }
 }
 
